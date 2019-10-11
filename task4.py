@@ -1,41 +1,26 @@
-# Задание 4. Уровень - гросмейстер.
-# Условие: Известно, что на доске 8×8 можно расставить 8 ферзей так, ч
-# тобы они не били друг друга. Вам дана расстановка 8 ферзей на доске, определите,
-# есть ли среди них пара бьющих друг друга.
+"""
+Creator: Krylova Elizaveta
+"""
 
-# Входные данные: программа получает на вход восемь пар чисел, каждое число от 1 до 8 - координаты 8 ферзей.
 
-# Выходные данные : eсли ферзи не бьют друг друга, выведите слово NO, иначе выведите YES.
-
-# Пример:
-# Ввод:                                        # Вывод:
-# 1 7
-# 2 4
-# 4 8
-# 3 2
-# 8 5
-# 7 3
-# 6 1
-# 5 6
-
-p_1, p_2 = [], []
-check = False
+P1, P2 = [], []
+CHECK = False
 
 for i in range(8):
-    el_1, el_2 = map(int, input().split())
-    p_1.append(el_1)
-    p_2.append(el_2)
+    El1, El2 = map(int, input().split())
+    P1.append(El1)
+    P2.append(El2)
 
 
 for i in range(8):
-    for j in range(i + 1,8):
-        if p_1[i] != (8 or 1) and p_2[i] != (8 or 1) and p_1[j] != (8 or 1) and p_2[j] != (8 or 1):
-            if p_1[i] - p_1[j] == p_2[i] - p_2[j]:
-                check = True
+    for j in range(i + 1):
+        if P1[i] != (8 or 1) and P2[i] != (8 or 1) and P1[j] != (8 or 1) and P2[j] != (8 or 1):
+            if P1[i] - P1[j] == P2[i] - P2[j]:
+                CHECK = True
                 break
 
-if check == False:
+if CHECK is False:
     print("NO")
 else:
     print("YES")
-
+    

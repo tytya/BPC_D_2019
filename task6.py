@@ -1,65 +1,43 @@
-# Задание 6. Уровень - Кодзима, ты ли это?
-# Условие: вы создали игру в жанре шутер. Теперь ваш дизайнер придумал новое неизвестное никому оружее - дробовик.
-# Известно, что дробовики стреляют дробью (внезапно, правда?). Ваша задача - рассчитать суммарный урон, наненсенный
-# выстрелом из дробовика.
+"""
+Creator: Krylova Elizaveta
+"""
 
 
-# Входные данные : Сначала вводится количество дробинок.
-# Затем урон от каждой дробинки. Урон от каждой дробинки выражается простой дробью,
-# её числитель и знаменатель вводятся на отдельных строках.
 
-# Выходные данные : Суммарный урон, выраженный простой несократимой дробью с дробной
-# чертой между числителем и знаменателем.
-
-
-# Пример:
-# Ввод:                                               # Вывод:
-# 2
-# 1
-# 50
-# 3
-# 20                                                 17/100
-
-
-# 3
-# 1
-# 50
-# 2
-# 40
-# 3
-# 30                                                 17/100
-
-def LCM(x, y):
-    if x > y:
-        greater = x
+def lcm(first, second):
+    """This function"""
+    if first > second:
+        greater = first
     else:
-        greater = y
-    while(True):
-        if((greater % x == 0) and (greater % y == 0)):
-            lcm = greater
+        greater = second
+    while True:
+        if((greater % first == 0) and (greater % second == 0)):
+            l_c_m = greater
             break
         greater += 1
-    return lcm
-
-def GCD(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+    return l_c_m
 
 
 
-n = int(input())
-num = int(input())
-lcm = int(input())
+def gcd(first, second):
+    """This function"""
+    while second:
+        first, second = second, first % second
+    return first
 
-for i in range(n-1):
-    w = int(input())
-    f = int(input())
-    f_1 = lcm
-    lcm = LCM(lcm, f)
-    w = w*(lcm/f)
-    num = num*(lcm/f_1) + w
 
-gcd = GCD(num, lcm)
+N = int(input())
+NUM = int(input())
+LCM = int(input())
 
-print(round(num/gcd), "/", round(lcm/gcd))
+for i in range(N-1):
+    W = int(input())
+    F = int(input())
+    F1 = LCM
+    LCM = lcm(LCM, F)
+    W = W*(LCM/F)
+    NUM = NUM*(LCM/F1) + W
+
+GCD = gcd(NUM, LCM)
+
+print(round(NUM/GCD), "/", round(LCM/GCD))
