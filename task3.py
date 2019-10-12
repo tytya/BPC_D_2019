@@ -3,13 +3,12 @@ Creator: Krylova Elizaveta
 """
 
 
-ROW1 = int(input())
-COL1 = int(input())
-ROW2 = int(input())
-COL2 = int(input())
+R1 = int(input())
+C1 = int(input())
+R2 = int(input())
+C2 = int(input())
 
-if abs(ROW1 - ROW2) == 2 or abs(ROW1 - ROW2) == 5:
-    if abs(COL1 - COL2) == 2 or abs(COL1 - COL2) == 5:
-        print("YESSSS!")
+if (abs(R1 - R2) == 2 and abs(C1 - C2) == 5) or (abs(R1 - R2) == 5 and abs(C1 - C2) == 2):
+    print("YESSSS!")
 else:
     print("No no")
