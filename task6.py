@@ -1,7 +1,7 @@
 """
 Creator: Krylova Elizaveta
 """
-
+import re
 
 
 def lcm(first, second):
@@ -40,4 +40,5 @@ for i in range(N-1):
 
 GCD = gcd(NUM, LCM)
 
-print(round(NUM/GCD), "/", round(LCM/GCD))
+S = re.sub(r'[\s+]', '', str(round(NUM/GCD)) + "/" + str(round(LCM/GCD)))
+print(S)
