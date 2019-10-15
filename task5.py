@@ -2,14 +2,30 @@
 Creator: Krylova Elizaveta
 """
 
+from flask import Flask
 
-NUM = int(input())
-DIVS = []
-for i in range(1, NUM + 1):
-    if NUM % i == 0:
-        DIVS.append(i)
+APP = Flask(__name__)
 
-print(' '.join(map(str, DIVS)))
+@APP.route('/')
+def homepage():
+    """This function"""
+    return """
+        <style type="text/css">
+        .styletest {
+        color: #8B0000; 
+        font-size: 20px; 
+        font-family: Constantia;
+        style: font-weight:bold;
+        line-height: 3px;
+        }
+        </style>
+        <img src="https://sun9-69.userapi.com/c834302/v834302264/17cfa8/i5ANGXyfJ3c.jpg" alt="Лизя" height=250px width=200px>
+        <p><font class="styletest"> К Р Ы Л О В А </font></p>
+        <p><font class="styletest"> Елизавета Сергеевна </font></p>
+        <p> Python разработчик </p>
+        <p> тел.: 8(900)-987-87-97 </p>
+        <p> Начинающий python разработчик </p>
+        <p> OOO "Выжить" <p>
+        """
 
-if len(DIVS) == 2:
-    print("ACHTUNG")
+APP.run(port=8080, debug=True)

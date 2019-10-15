@@ -2,25 +2,25 @@
 Creator: Krylova Elizaveta
 """
 
+N = int(input())
 
-P1, P2 = [], []
-CHECK = False
+YRA = False
+SOB = False
 
-for i in range(8):
-    El1, El2 = map(int, input().split())
-    P1.append(El1)
-    P2.append(El2)
+for j in range(N):
+    STR = input().replace(' ', '').lower()
+    STR = [i  for i in STR if i.isalpha() is True]
+    for i in range(int(len(STR)/2)):
+        if STR[i] != STR[-i-1]:
+            if j % 2 == 0:
+                YRA = True
+            else:
+                SOB = True
+            break
 
-
-for i in range(8):
-    for j in range(i + 1):
-        if P1[i] != (8 or 1) and P2[i] != (8 or 1) and P1[j] != (8 or 1) and P2[j] != (8 or 1):
-            if P1[i] - P1[j] == P2[i] - P2[j]:
-                CHECK = True
-                break
-
-if CHECK is False:
-    print("NO")
+if YRA is True:
+    print("Сослан на Плутон Юра")
+elif SOB is True:
+    print("Сослан на Плутон собеседник")
 else:
-    print("YES")
-    
+    print("Сослать обоих")

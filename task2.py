@@ -2,20 +2,24 @@
 Creator: Krylova Elizaveta
 """
 
-NUMB1 = float(input())
-NUMB2 = float(input())
-STR = input()
+N = int(input())
+PLANET = input()
+PLANET = PLANET.split(" ")
+print(PLANET)
+DICT = {}
 
-if STR == "+":
-    print(round((NUMB1 + NUMB2), 1))
-elif STR == "-":
-    print(round((NUMB1 - NUMB2), 1))
-elif STR == "*":
-    print(round((NUMB1 * NUMB2), 1))
-elif STR == "/":
-    if NUMB2 == 0:
-        print("ЫЫЫЫЫЫ")
-    else:
-        print(round((NUMB1 / NUMB2), 1))
-else:
-    print("ЫЫЫЫЫЫ")
+for i in range(N):
+    DICT[PLANET[i]] = N - i
+
+L_NUM = list(DICT.values())
+L_QUA = list(DICT.keys())
+
+
+MAX = -1
+
+for i in range(len(DICT)):
+    if L_NUM[i] > MAX:
+        MAX = L_NUM[i]
+        MAX_N = i
+
+print(L_QUA[MAX_N])

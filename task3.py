@@ -2,13 +2,60 @@
 Creator: Krylova Elizaveta
 """
 
+LANGS = ""
 
-R1 = int(input())
-C1 = int(input())
-R2 = int(input())
-C2 = int(input())
+while True:
+    STR = input()
+    if STR:
+        LANGS += STR + "\n"
+    else:
+        break
 
-if (abs(R1 - R2) == 2 and abs(C1 - C2) == 5) or (abs(R1 - R2) == 5 and abs(C1 - C2) == 2):
-    print("YESSSS!")
-else:
-    print("No no")
+LANGS = LANGS.split("\n")
+del LANGS[-1]
+
+LAN = []
+
+for LANG in LANGS:
+    LAN.append(LANG.split(" "))
+
+TEXTES = ""
+
+while True:
+    STR = input().lower()
+    if STR:
+        TEXTES += STR + "\n"
+    else:
+        break
+
+TEXTES = TEXTES.split("\n")
+del TEXTES[-1]
+
+TEX = []
+
+for TEXT in TEXTES:
+    TEX.append(TEXT.split(" "))
+
+for TEXTS in TEX:
+    OUTPUT = []
+    for TEXT in TEXTS:
+        DICT = {}
+        for LANG in LAN:
+            for TE in TEXT:
+                if LANG[1].find(TE) != -1:
+                    try:
+                        DICT[LANG[0]] += 1
+                    except KeyError:
+                        DICT[LANG[0]] = 0
+        MAX = -1
+        k = 0
+        for k, value in DICT.items():
+            if value > MAX:
+                MAX = value
+                MAX_V = k
+        try:
+            OUTPUT.index(k)
+        except ValueError:
+            OUTPUT.append(k)
+    OUTPUT.sort()
+    print(*OUTPUT)
