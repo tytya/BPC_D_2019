@@ -25,7 +25,7 @@ def homepage():
         <p> Python разработчик </p>
         <p> тел.: 8(900)-987-87-97 </p>
         <p> Начинающий python разработчик </p>
-        <p> OOO "Выжить" <p>
+        <p> OOO "ЛИЗЯ" <p>
         """
 
 APP.run(port=8080, debug=True)
