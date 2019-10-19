@@ -5,7 +5,6 @@ Creator: Krylova Elizaveta
 N = int(input())
 PLANET = input()
 PLANET = PLANET.split(" ")
-print(PLANET)
 DICT = {}
 
 for i in range(N):

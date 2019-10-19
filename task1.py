@@ -14,6 +14,8 @@ class Rational:
             print("ОШИБКА! Делитель равен 0")
             self.frac = str(self.num) + " / " + str(self.den)
 
+        elif (self.den < 0 and self.num < 0):
+            self.frac = str(self.num) + " / " + str(self.den)
         else:
             self.frac = str(self.num) + " / " + str(self.den)
 
